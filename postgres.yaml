@@ -36,7 +36,7 @@ spec:
       name: postgres-storage
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: gp2-backup
+      storageClassName: gp2-with-backup
       resources:
         requests:
           storage: 5Gi  # Adjust the size as needed

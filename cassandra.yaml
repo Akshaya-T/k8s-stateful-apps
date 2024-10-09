@@ -86,7 +86,7 @@ spec:
       name: cassandra-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: gp2-backup
+      storageClassName: gp2-with-backup
       resources:
         requests:
           storage: 1Gi
