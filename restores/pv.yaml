@@ -1,0 +1,30 @@
+--- 
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: restore-volume
+spec:
+  storageClassName: gp2-with-backup
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  persistentVolumeReclaimPolicy: Delete
+  awsElasticBlockStore:
+    fsType: ext4
+    volumeID: vol-0ac6b5cd2d40a4ba1
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: test-sts-restore
+  name: www-restore-web-0
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: gp2-with-backup
+  volumeName: restore-volume
